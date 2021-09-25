@@ -296,7 +296,7 @@ GM:AddStartingItem("betty",				ITEMCAT_OTHER,			15,				"weapon_zs_proxymine")
 GM:AddStartingItem("corgasgrenade",		ITEMCAT_OTHER,			15,				"weapon_zs_corgasgrenade")
 GM:AddStartingItem("crygasgrenade",		ITEMCAT_OTHER,			15,				"weapon_zs_crygasgrenade").SkillRequirement = SKILL_U_CRYGASGREN
 GM:AddStartingItem("detpck",			ITEMCAT_OTHER,			35,				"weapon_zs_detpack").Countables = "prop_detpack"
-GM:AddStartingItem("suicidebomb",			ITEMCAT_OTHER,			35,				"weapon_zs_suicidebomb")
+GM:AddStartingItem("suicidebomb",		ITEMCAT_OTHER,			35,				"weapon_zs_suicidebomb")
 item =
 --GM:AddStartingItem("sigfragment",		ITEMCAT_OTHER,			25,				"weapon_zs_sigilfragment")
 --item.NoClassicMode = true
@@ -338,6 +338,7 @@ GM:AddPointShopItem("uzi",				ITEMCAT_GUNS,			35,				"weapon_zs_uzi")
 GM:AddPointShopItem("annabelle",		ITEMCAT_GUNS,			35,				"weapon_zs_annabelle")
 GM:AddPointShopItem("inquisitor",		ITEMCAT_GUNS,			35,				"weapon_zs_inquisitor")
 GM:AddPointShopItem("amigo",			ITEMCAT_GUNS,			35,				"weapon_zs_amigo")
+GM:AddPointShopItem()"void2"			ITEMCAT_GUNS,			35				"weapon_zs_void2")
 GM:AddPointShopItem("hurricane",		ITEMCAT_GUNS,			35,				"weapon_zs_hurricane")
 -- Tier 3
 GM:AddPointShopItem("deagle",			ITEMCAT_GUNS,			65,				"weapon_zs_deagle")
@@ -653,7 +654,7 @@ GM:AddPointShopItem("molotov",			ITEMCAT_OTHER,			30,				"weapon_zs_molotov")
 GM:AddPointShopItem("grenade",			ITEMCAT_OTHER,			35,				"weapon_zs_grenade")
 GM:AddPointShopItem("betty",			ITEMCAT_OTHER,			35,				"weapon_zs_proxymine")
 GM:AddPointShopItem("detpck",			ITEMCAT_OTHER,			40,				"weapon_zs_detpack")
-GM:AddPointShopItem("suicidebomb",			ITEMCAT_OTHER,			45,				"weapon_zs_suicidebomb")
+GM:AddPointShopItem("suicidebomb",		ITEMCAT_OTHER,			45,				"weapon_zs_suicidebomb")
 item =
 GM:AddPointShopItem("crygasgrenade",	ITEMCAT_OTHER,			40,				"weapon_zs_crygasgrenade")
 item.SkillRequirement = SKILL_U_CRYGASGREN
