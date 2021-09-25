@@ -182,6 +182,8 @@ if SERVER then
 	end
 end
 
+if not CLIENT then return end
+
 CLASS.Icon = "zombiesurvival/killicons/lacerator"
 CLASS.IconColor = Color(255, 255, 0)
 
