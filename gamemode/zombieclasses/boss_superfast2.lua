@@ -201,8 +201,6 @@ local MuscularBones = {
 	["ValveBiped.Bip01_R_Foot"] = Vector(1, 2, 3),
 }
 
-local render_SetMaterial = render.SetMaterial
-local render_DrawSprite = render.DrawSprite
 local angle_zero = angle_zero
 local LocalToWorld = LocalToWorld
 
