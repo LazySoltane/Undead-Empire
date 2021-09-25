@@ -64,6 +64,7 @@ SWEP.Primary.Sound = Sound("weapons/xm1014/xm1014-1.wav", 100, math.random(0, 70
 SWEP.Primary.Damage = 40
 SWEP.Primary.NumShots = 6
 SWEP.Primary.Delay = 0.8
+SWEP.Secondary.Delay = 1.2
 
 
 SWEP.Primary.ClipSize = 8
@@ -73,38 +74,40 @@ GAMEMODE:SetupDefaultClip(SWEP.Primary)
 
 SWEP.RequiredClip = 1
 SWEP.ReloadSound = Sound("Weapon_Shotgun.Reload")
+SWEP.IronSightsPos = Vector(-0, 00, 0)
 
 SWEP.ConeMax = 4.55
 SWEP.ConeMin = 3.25
 
-SWEP.FireAnimSpeed = 1
+SWEP.FireAnimSpeed = 0.7
 SWEP.Tier = 2
 
 GAMEMODE:AttachWeaponModifier(SWEP, WEAPON_MODIFIER_SHOT_COUNT, 1)
 
+function SWEP:CanPrimaryAttack()
+	if self:GetOwner():IsHolding() or self:GetOwner():GetBarricadeGhosting() then return false end
 
+	if self:Clip1() <= 0 then
+		self:EmitSound("Weapon_Shotgun.Empty")
+		self:SetNextPrimaryFire(CurTime() + 0.25)
+
+		return false
+	end
+
+	return self:GetNextPrimaryFire() <= CurTime()
+end
+
+function SWEP:SecondaryAttack()
+	if self:GetNextSecondaryFire() <= CurTime() and not self:GetOwner():IsHolding() and self:GetReloadFinish() == 0 then
+		self:SetIronsights(true)
+	end
+end
 
 function SWEP:PrimaryAttack()
 	self.AttackContext = true
 	BaseClass.PrimaryAttack(self)
 end
 
-function SWEP:SecondaryAttack()
-	if not self:CanPrimaryAttack() then return end
-
-	local multiplier = self:Clip1()
-
-	self.Primary.NumShots = self.Primary.NumShots / multiplier
-	self.RequiredClip = 2
-	self.OldEmitFireSound = self.EmitFireSound
-	self.EmitFireSound = self.EmitFireSoundDouble
-
-	self:PrimaryAttack()
-
-	self.Primary.NumShots = self.Primary.NumShots / multiplier
-	self.RequiredClip = 1
-	self.EmitFireSound = self.OldEmitFireSound
-end
 
 function SWEP:EmitFireSound()
 	self:EmitSound("weapons/m3/m3-1.wav", 75, math.random(134, 136), 0.7)
