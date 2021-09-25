@@ -6,7 +6,6 @@ DEFINE_BASECLASS("weapon_zs_baseshotgun")
 SWEP.PrintName = "'Void' Martini's Shotgun"
 SWEP.Description = "4 pellets dealing 34+ damage in an 180 degree arc."
 
-if CLIENT then
 SWEP.UseHands = true
 
 SWEP.HoldType = "shotgun"
@@ -50,6 +49,8 @@ SWEP.VElements = {
 SWEP.HUD3DBone = "ValveBiped.Gun"
 SWEP.HUD3DPos = Vector(2.8, 0, -8)
 SWEP.HUD3DScale = 0.025	
+
+end
 
 SWEP.Base = "weapon_zs_baseshotgun"
 
