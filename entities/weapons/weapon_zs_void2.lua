@@ -3,7 +3,7 @@ AddCSLuaFile()
 DEFINE_BASECLASS("weapon_zs_baseshotgun")
 
 SWEP.PrintName = "'Void' Martini's Shotgun"
-SWEP.Description = "6 pellets dealing 45+ damage in an 180 degree arc."
+SWEP.Description = "6 pellets dealing 30 damage in an 180 degree arc."
 
 SWEP.UseHands = true
 SWEP.HoldType = "shotgun"
@@ -60,7 +60,7 @@ SWEP.ShowWorldModel = true
 SWEP.ReloadDelay = 0.5
 
 SWEP.Primary.Sound = Sound("weapons/xm1014/xm1014-1.wav", 100, math.random(0, 70), 0.5, CHAN_WEAPON - 70)
-SWEP.Primary.Damage = 25
+SWEP.Primary.Damage = 30
 SWEP.Primary.NumShots = 6
 SWEP.Primary.Delay = 1.2
 
@@ -73,10 +73,9 @@ GAMEMODE:SetupDefaultClip(SWEP.Primary)
 SWEP.RequiredClip = 1
 SWEP.ReloadSound = Sound("Weapon_Shotgun.Reload")
 
-SWEP.ConeMax = 10
-SWEP.ConeMin = 5
-SWEP.Primary.Recoil = 7.5
-SWEP.Recoil = 2.5
+SWEP.ConeMax = 8.5
+SWEP.ConeMin = 4
+SWEP.Recoil = 5
 
 SWEP.FireAnimSpeed = 0.7
 SWEP.Tier = 2
@@ -120,7 +119,7 @@ function SWEP:SecondaryAttack()
 	self.Primary.Damage = self.Primary.Damage / multiplier
 	self.FireAnimSpeed = 0.7
 	self.Primary.Delay = self.Primary.Delay
-	self.Recoil = self.Recoil
+	self.Recoil = self.Recoil / multiplier
 	
 	return self:SetNextPrimaryFire(CurTime() + 1.25)
 end
