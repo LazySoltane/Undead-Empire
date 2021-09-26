@@ -1,23 +1,19 @@
 AddCSLuaFile()
 
-SWEP.Base = "weapon_zs_baseshotgun"
 DEFINE_BASECLASS("weapon_zs_baseshotgun")
 
 SWEP.PrintName = "'Void' Martini's Shotgun"
 SWEP.Description = "6 pellets dealing 45+ damage in an 180 degree arc."
 
 SWEP.UseHands = true
+SWEP.HoldType = "shotgun"
 
 if CLIENT then
 	
-
-SWEP.HoldType = "shotgun"
 SWEP.ViewModelFOV = 70
 SWEP.ViewModelFlip = false
 SWEP.ViewModel = "models/weapons/cstrike/c_shot_m3super90.mdl"
 SWEP.WorldModel = "models/weapons/w_shot_m3super90.mdl"
-SWEP.ShowViewModel = true
-SWEP.ShowWorldModel = true
 SWEP.ViewModelBoneMods = {
 	["ValveBiped.Bip01_Spine4"] = { scale = Vector(1, 1, 1), pos = Vector(0, -0.441, 0.089), angle = Angle(0, 0, 0) },
 	["ValveBiped.Gun"] = { scale = Vector(0.01, 0.01, 0.01), pos = Vector(0, 0.5, -0.9), angle = Angle(0, 0, 0) }
@@ -58,13 +54,15 @@ end
 
 SWEP.Base = "weapon_zs_baseshotgun"
 
-SWEP.ReloadDelay = 0.4
+SWEP.ShowViewModel = true
+SWEP.ShowWorldModel = true
+
+SWEP.ReloadDelay = 0.5
 
 SWEP.Primary.Sound = Sound("weapons/xm1014/xm1014-1.wav", 100, math.random(0, 70), 0.5, CHAN_WEAPON - 70)
-SWEP.Primary.Damage = 40
+SWEP.Primary.Damage = 25
 SWEP.Primary.NumShots = 6
-SWEP.Primary.Delay = 0.8
-SWEP.Secondary.Delay = 1.2
+SWEP.Primary.Delay = 1.2
 
 
 SWEP.Primary.ClipSize = 8
@@ -74,10 +72,11 @@ GAMEMODE:SetupDefaultClip(SWEP.Primary)
 
 SWEP.RequiredClip = 1
 SWEP.ReloadSound = Sound("Weapon_Shotgun.Reload")
-SWEP.IronSightsPos = Vector(-0, 00, 0)
 
-SWEP.ConeMax = 4.55
-SWEP.ConeMin = 3.25
+SWEP.ConeMax = 10
+SWEP.ConeMin = 5
+SWEP.Primary.Recoil = 7.5
+SWEP.Recoil = 2.5
 
 SWEP.FireAnimSpeed = 0.7
 SWEP.Tier = 2
@@ -98,16 +97,38 @@ function SWEP:CanPrimaryAttack()
 end
 
 function SWEP:SecondaryAttack()
-	if self:GetNextSecondaryFire() <= CurTime() and not self:GetOwner():IsHolding() and self:GetReloadFinish() == 0 then
-		self:SetIronsights(true)
-	end
+	if not self:CanPrimaryAttack() then return end
+	if self:Clip1() <= 1 then return end
+	self:GetOwner():RemoveAmmo(0, self.Primary.Ammo, false)
+
+	local multiplier = 2
+
+	self.Primary.NumShots = self.Primary.NumShots * multiplier
+	self.RequiredClip = 2
+	self.OldEmitFireSound = self.EmitFireSound
+	self.EmitFireSound = self.EmitFireSoundDouble
+	self.Primary.Damage = self.Primary.Damage * multiplier
+	self.FireAnimSpeed = 0.35
+	self.Recoil = self.Recoil * multiplier
+	
+
+	self:PrimaryAttack()
+
+	self.Primary.NumShots = self.Primary.NumShots / multiplier
+	self.RequiredClip = 1
+	self.EmitFireSound = self.OldEmitFireSound
+	self.Primary.Damage = self.Primary.Damage / multiplier
+	self.FireAnimSpeed = 0.7
+	self.Primary.Delay = self.Primary.Delay
+	self.Recoil = self.Recoil
+	
+	return self:SetNextPrimaryFire(CurTime() + 1.25)
 end
 
 function SWEP:PrimaryAttack()
 	self.AttackContext = true
 	BaseClass.PrimaryAttack(self)
 end
-
 
 function SWEP:EmitFireSound()
 	self:EmitSound("weapons/m3/m3-1.wav", 75, math.random(134, 136), 0.7)
@@ -117,25 +138,10 @@ end
 function SWEP:EmitFireSoundDouble()
 	if self:Clip1() == 2 then
 		self:EmitSound(self.Primary.Sound, 80, math.random(80, 85), 1, CHAN_WEAPON + 20)
+		self:EmitSound("weapons/m3/m3-1.wav", 75, math.random(134, 136), 0.7)
+		self:EmitSound("weapons/xm1014/xm1014-1.wav", 75, math.random(172, 180), 0.5, CHAN_WEAPON + 20)
+		self:EmitSound("weapons/zs_sawnoff/sawnoff_fire1.ogg", 100, math.random(172, 180), 0.5, CHAN_WEAPON + 20)
 	else
 		self:OldEmitFireSound()
 	end
-end
-
-function SWEP:ShootBullets(dmg, numbul, cone)
-	local owner = self:GetOwner()
-	local sprd = (self.AttackContext and 2 or 2.75)*cone/6
-	local recp = self.AttackContext and 2 or 1.25
-
-	self:SendWeaponAnimation()
-	owner:DoAttackEvent()
-
-	owner:LagCompensation(true)
-	for i = 1, numbul do
-		local angle = owner:GetAimVector():Angle()
-		angle:RotateAroundAxis(self.AttackContext and angle:Up() or angle:Right(), (i - math.ceil(self.Primary.NumShots/2)) * sprd)
-
-		owner:FireBulletsLua(owner:GetShootPos(), angle:Forward(), cone/recp, 1, dmg, nil, self.Primary.KnockbackScale, self.TracerName, self.BulletCallback, self.Primary.HullSize, nil, self.Primary.MaxDistance, nil, self)
-	end
-	owner:LagCompensation(false)
 end
