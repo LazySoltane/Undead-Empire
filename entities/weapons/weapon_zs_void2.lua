@@ -57,7 +57,7 @@ SWEP.Base = "weapon_zs_baseshotgun"
 SWEP.ShowViewModel = true
 SWEP.ShowWorldModel = true
 
-SWEP.ReloadDelay = 0.8
+SWEP.ReloadDelay = 0.4
 
 SWEP.Primary.Sound = Sound("weapons/xm1014/xm1014-1.wav", 100, math.random(0, 70), 0.5, CHAN_WEAPON - 100)
 SWEP.Primary.Damage = 45
