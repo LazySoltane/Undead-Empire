@@ -60,7 +60,7 @@ SWEP.ShowWorldModel = true
 SWEP.ReloadDelay = 0.4
 
 SWEP.Primary.Sound = Sound("weapons/xm1014/xm1014-1.wav", 100, math.random(0, 70), 0.5, CHAN_WEAPON - 100)
-SWEP.Primary.Damage = 45
+SWEP.Primary.Damage = 40
 SWEP.Primary.NumShots = 6
 SWEP.Primary.Delay = 1.2
 
@@ -74,7 +74,7 @@ SWEP.RequiredClip = 1
 SWEP.ReloadSound = Sound("Weapon_Shotgun.Reload")
 
 SWEP.ConeMax = 9
-SWEP.ConeMin = 4
+SWEP.ConeMin = 5.5
 SWEP.Recoil = 5.5
 
 SWEP.FireAnimSpeed = 0.8
