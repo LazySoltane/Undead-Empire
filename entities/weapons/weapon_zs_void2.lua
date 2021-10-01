@@ -57,15 +57,15 @@ SWEP.Base = "weapon_zs_baseshotgun"
 SWEP.ShowViewModel = true
 SWEP.ShowWorldModel = true
 
-SWEP.ReloadDelay = 0.5
+SWEP.ReloadDelay = 0.8
 
-SWEP.Primary.Sound = Sound("weapons/xm1014/xm1014-1.wav", 100, math.random(0, 70), 0.5, CHAN_WEAPON - 70)
-SWEP.Primary.Damage = 30
+SWEP.Primary.Sound = Sound("weapons/xm1014/xm1014-1.wav", 100, math.random(0, 70), 0.5, CHAN_WEAPON - 100)
+SWEP.Primary.Damage = 45
 SWEP.Primary.NumShots = 6
 SWEP.Primary.Delay = 1.2
 
 
-SWEP.Primary.ClipSize = 8
+SWEP.Primary.ClipSize = 6
 SWEP.Primary.Automatic = false
 SWEP.Primary.Ammo = "buckshot"
 GAMEMODE:SetupDefaultClip(SWEP.Primary)
@@ -73,12 +73,12 @@ GAMEMODE:SetupDefaultClip(SWEP.Primary)
 SWEP.RequiredClip = 1
 SWEP.ReloadSound = Sound("Weapon_Shotgun.Reload")
 
-SWEP.ConeMax = 8.5
+SWEP.ConeMax = 9
 SWEP.ConeMin = 4
-SWEP.Recoil = 5
+SWEP.Recoil = 5.5
 
-SWEP.FireAnimSpeed = 0.7
-SWEP.Tier = 2
+SWEP.FireAnimSpeed = 0.8
+SWEP.Tier = 3
 
 GAMEMODE:AttachWeaponModifier(SWEP, WEAPON_MODIFIER_SHOT_COUNT, 1)
 
