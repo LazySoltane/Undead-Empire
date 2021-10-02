@@ -932,6 +932,7 @@
 @PointClass base(Weapon) studio("models/props_interiors/Furniture_Lamp01a.mdl") = weapon_zs_lamp               : "Lamp them one." []
 @PointClass base(Weapon) studio("models/weapons/w_crowbar.mdl")                 = weapon_zs_longsword          : "A longsword to cleave through zombies." []
 @PointClass base(Weapon) studio("models/weapons/w_357.mdl")                     = weapon_zs_longarm            : "Ammo Type: Pistol.\nThis gun's bullets deal extremely large amounts of damage. " []
+@PointClass base(Weapon) studio("models/weapons/w_357.mdl")						= weapon_zs_judged			   : "This Revolver was modified by the great Martini for amazing firepower at the expense of recoil." []
 @PointClass base(Weapon) studio("models/weapons/w_rif_m4a1.mdl")                = weapon_zs_m4                 : "Ammo Type: Assault Rifle.\nUsing this gun reduces the distance that zombies can see your aura." []
 @PointClass base(Weapon) studio("models/weapons/w_357.mdl")                     = weapon_zs_magnum             : "Ammo Type: Pistol.\nThis gun's bullets will bounce off of walls which deal extra damage." []
 @PointClass base(Weapon) studio("models/manhack.mdl")                           = weapon_zs_manhack            : "A remotely controlled device. Ideal for scouting and attacking from safety." []

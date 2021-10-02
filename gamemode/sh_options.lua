@@ -332,6 +332,7 @@ GM:AddPointShopItem("barrage",			ITEMCAT_GUNS,			20,				"weapon_zs_barrage",nil,
 -- Tier 2
 GM:AddPointShopItem("glock3",			ITEMCAT_GUNS,			35,				"weapon_zs_glock3")
 GM:AddPointShopItem("magnum",			ITEMCAT_GUNS,			35,				"weapon_zs_magnum")
+GM:AddPointShopItem("judged",			ITEMCAT_GUNS,			35,				"weapon_zs_judged")
 GM:AddPointShopItem("eraser",			ITEMCAT_GUNS,			35,				"weapon_zs_eraser")
 GM:AddPointShopItem("sawedoff",			ITEMCAT_GUNS,			35,				"weapon_zs_sawedoff")
 GM:AddPointShopItem("uzi",				ITEMCAT_GUNS,			35,				"weapon_zs_uzi")
