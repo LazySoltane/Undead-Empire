@@ -7,13 +7,7 @@ SWEP.Slot = 1
 SWEP.SlotPos = 0
 
 if CLIENT then
-SWEP.HoldType = "revolver"
-SWEP.ViewModelFOV = 55
-SWEP.ViewModelFlip = false
-SWEP.ViewModel = "models/weapons/c_357.mdl"
-SWEP.WorldModel = "models/weapons/w_357.mdl"
-SWEP.ShowViewModel = false
-SWEP.ShowWorldModel = false
+
 SWEP.ViewModelBoneMods = {}
 
 SWEP.VElements = {
@@ -105,6 +99,19 @@ SWEP.WElements = {
 	["drum++++++"] = { type = "Model", model = "models/hunter/tubes/circle2x2.mdl", bone = "ValveBiped.Bip01_R_Hand", rel = "drum", pos = Vector(0.586, 0.323, -1.049), angle = Angle(0, 0, 0), size = Vector(0.007, 0.007, 0.051), color = Color(109, 109, 109, 255), surpresslightning = false, material = "metal2", skin = 0, bodygroup = {} }
 }
 
+
+end
+
+SWEP.HoldType = "revolver"
+SWEP.ViewModelFOV = 55
+SWEP.ViewModelFlip = false
+SWEP.ViewModel = "models/weapons/c_357.mdl"
+SWEP.WorldModel = "models/weapons/w_357.mdl"
+SWEP.ShowViewModel = false
+SWEP.ShowWorldModel = false
+
+SWEP.Base = "weapon_zs_base"
+
 SWEP.HUD3DBone = "Python"
 SWEP.HUD3DPos = Vector(0.85, 0, -2.5)
 SWEP.HUD3DScale = 0.015
@@ -113,19 +120,16 @@ SWEP.HUD3DScale = 0.015
 
 SWEP.IronSightsPos = Vector(-4.626, 9.629, 0.109) 
 SWEP.IronSightsAng = Vector(0, 0, 0)
-end
-
-SWEP.Base = "weapon_zs_base"
 
 SWEP.UseHands = true
 
 SWEP.CSMuzzleFlashes = false
 
 SWEP.Primary.Sound = Sound("Weapon_357.Single"), Sound("weapons/zs_longarm/longarm_fire.ogg")
-SWEP.Primary.Delay = 1.1
-SWEP.Primary.Damage = 96
+SWEP.Primary.Delay = 0.8
+SWEP.Primary.Damage = 100
 SWEP.Primary.NumShots = 1
-SWEP.Recoil = 4
+SWEP.Recoil = 5
 
 SWEP.Primary.ClipSize = 6
 SWEP.Primary.Automatic = false
@@ -135,5 +139,5 @@ GAMEMODE:SetupDefaultClip(SWEP.Primary)
 
 SWEP.Tier = 2
 
-SWEP.ConeMax = 3.5
-SWEP.ConeMin = 2
+SWEP.ConeMax = 3
+SWEP.ConeMin = 2.5
