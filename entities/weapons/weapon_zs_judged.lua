@@ -1,8 +1,8 @@
 AddCSLuaFile()
 DEFINE_BASECLASS("weapon_zs_base")
 
-SWEP.PrintName = "'The Judge' Revolver'"
-SWEP.Description = "This Revolver was modified by the great Martini for amazing firepower at the expense of recoil"
+SWEP.PrintName = "Big Iron"
+SWEP.Description = "This revolver was modified by the great Martini for amazing firepower at the expense of recoil"
 SWEP.Slot = 1
 SWEP.SlotPos = 0
 
@@ -126,8 +126,9 @@ SWEP.UseHands = true
 SWEP.CSMuzzleFlashes = false
 
 SWEP.Primary.Sound = Sound("Weapon_357.Single"), Sound("weapons/zs_longarm/longarm_fire.ogg")
-SWEP.Primary.Delay = 0.8
-SWEP.Primary.Damage = 100
+SWEP.Primary.Delay = 1.2
+SWEP.Primary.Damage = 88
+SWEP.FireAnimSpeed = 1.2
 SWEP.Primary.NumShots = 1
 SWEP.Recoil = 5
 

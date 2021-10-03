@@ -2,8 +2,8 @@ AddCSLuaFile()
 
 DEFINE_BASECLASS("weapon_zs_baseshotgun")
 
-SWEP.PrintName = "'Void' Martini's Shotgun"
-SWEP.Description = "6 pellets dealing 30 damage in an 180 degree arc."
+SWEP.PrintName = "The Cocktail"
+SWEP.Description = "Can only shoot if 2 shells are loaded, 2x6 pellets dealing 80~ damage in an arc."
 
 SWEP.UseHands = true
 SWEP.HoldType = "shotgun"
@@ -57,12 +57,12 @@ SWEP.Base = "weapon_zs_baseshotgun"
 SWEP.ShowViewModel = true
 SWEP.ShowWorldModel = true
 
-SWEP.ReloadDelay = 0.4
+SWEP.ReloadDelay = 0.6
 
 SWEP.Primary.Sound = Sound("weapons/xm1014/xm1014-1.wav", 100, math.random(0, 70), 0.5, CHAN_WEAPON - 100)
 SWEP.Primary.Damage = 40
 SWEP.Primary.NumShots = 6
-SWEP.Primary.Delay = 0.9
+SWEP.Primary.Delay = 0.8
 
 
 SWEP.Primary.ClipSize = 6
@@ -70,22 +70,22 @@ SWEP.Primary.Automatic = false
 SWEP.Primary.Ammo = "buckshot"
 GAMEMODE:SetupDefaultClip(SWEP.Primary)
 
-SWEP.RequiredClip = 1
+SWEP.RequiredClip = 2
 SWEP.ReloadSound = Sound("Weapon_Shotgun.Reload")
 
-SWEP.ConeMax = 9
+SWEP.ConeMax = 10
 SWEP.ConeMin = 5.5
-SWEP.Recoil = 5.5
+SWEP.Recoil = 10
 
-SWEP.FireAnimSpeed = 0.8
+SWEP.FireAnimSpeed = 1
 SWEP.Tier = 3
 
-GAMEMODE:AttachWeaponModifier(SWEP, WEAPON_MODIFIER_SHOT_COUNT, 1)
+GAMEMODE:AttachWeaponModifier(SWEP, WEAPON_MODIFIER_SHOT_COUNT, 2)
 
 function SWEP:CanPrimaryAttack()
 	if self:GetOwner():IsHolding() or self:GetOwner():GetBarricadeGhosting() then return false end
 
-	if self:Clip1() <= 0 then
+	if self:Clip1() <= 1 then
 		self:EmitSound("Weapon_Shotgun.Empty")
 		self:SetNextPrimaryFire(CurTime() + 0.25)
 
@@ -97,8 +97,9 @@ end
 
 function SWEP:SecondaryAttack()
 	if not self:CanPrimaryAttack() then return end
-	if self:Clip1() <= 1 then return end
-	self:GetOwner():RemoveAmmo(0, self.Primary.Ammo, false)
+	if self:Clip1() <= 3 then return end
+	self:GetOwner():RemoveAmmo(-2, self.Primary.Ammo, false)
+	self:SetClip1(self:Clip1() -2)
 
 	local multiplier = 2
 
@@ -107,35 +108,42 @@ function SWEP:SecondaryAttack()
 	self.OldEmitFireSound = self.EmitFireSound
 	self.EmitFireSound = self.EmitFireSoundDouble
 	self.Primary.Damage = self.Primary.Damage * multiplier
-	self.FireAnimSpeed = 0.35
+	self.FireAnimSpeed = 0.45
 	self.Recoil = self.Recoil * multiplier
 	
-
 	self:PrimaryAttack()
 
 	self.Primary.NumShots = self.Primary.NumShots / multiplier
-	self.RequiredClip = 1
+	self.RequiredClip = 2
 	self.EmitFireSound = self.OldEmitFireSound
 	self.Primary.Damage = self.Primary.Damage / multiplier
-	self.FireAnimSpeed = 0.7
+	self.FireAnimSpeed = 1
 	self.Primary.Delay = self.Primary.Delay
 	self.Recoil = self.Recoil / multiplier
-	
+
 	return self:SetNextPrimaryFire(CurTime() + 1.25)
 end
 
 function SWEP:PrimaryAttack()
-	self.AttackContext = true
 	BaseClass.PrimaryAttack(self)
+	if not self:CanPrimaryAttack() then return end
+	if self:Clip1() <= 1 then return end
+	self:GetOwner():RemoveAmmo(-2, self.Primary.Ammo, false)
+	self:SetClip1(self:Clip1() -2)
+	self:SetNextPrimaryFire(CurTime() + self.Primary.Delay)
+	self:EmitFireSound()
+
+	self:ShootBullets(self.Primary.Damage, self.Primary.NumShots, self:GetCone())
+	
 end
 
 function SWEP:EmitFireSound()
 	self:EmitSound("weapons/m3/m3-1.wav", 75, math.random(134, 136), 0.7)
-	self:EmitSound("weapons/xm1014/xm1014-1.wav", 75, math.random(172, 180), 0.5, CHAN_WEAPON + 20)
+	self:EmitSound("weapons/zs_sawnoff/sawnoff_fire1.ogg", 100, math.random(172, 180), 0.5, CHAN_WEAPON + 20)
 end
 
 function SWEP:EmitFireSoundDouble()
-	if self:Clip1() == 2 then
+	if self:Clip1() == 4 then
 		self:EmitSound(self.Primary.Sound, 80, math.random(80, 85), 1, CHAN_WEAPON + 20)
 		self:EmitSound("weapons/m3/m3-1.wav", 75, math.random(134, 136), 0.7)
 		self:EmitSound("weapons/xm1014/xm1014-1.wav", 75, math.random(172, 180), 0.5, CHAN_WEAPON + 20)
@@ -143,4 +151,8 @@ function SWEP:EmitFireSoundDouble()
 	else
 		self:OldEmitFireSound()
 	end
+end
+
+function SWEP:GetDisplayAmmo(clip, spare, maxclip)
+	return math.max(0, (clip * 1)), spare * 1, maxclip * 1
 end

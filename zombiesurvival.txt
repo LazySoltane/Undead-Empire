@@ -1,13 +1,13 @@
 "zombiesurvival"
 {
 	"base"				"base"
-	"title"				"Zombie Survival"
+	"title"				"Undead Empire ZS"
 	"maps"				"^zs_|^zm_|^zh_|^zps_|^zr_|^ze_"
 	"menusystem"		"1"
 
-	"author_name"		"William 'JetBoom' Moodhe"
-	"author_email"		"williammoodhe@gmail.com"
-	"author_url"		"http://www.noxiousnet.com/"
+	"author_name"		"EasyNature and Soltane"
+	"author_email"		"1234suckmyass@yourmom.ass"
+	"author_url"		"ligmaandsugmanuts.balls"
 
 	"settings"
 	{
