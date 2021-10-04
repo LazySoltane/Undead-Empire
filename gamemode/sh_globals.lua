@@ -129,10 +129,10 @@ GM.ZapperPointsMultiplier = 1.25
 
 -- The amount of damage you need to inflict to a zombie type to get a point
 GM.HumanoidZombiePointRatio = 45
-GM.PoisonZombiePointRatio = 60 -- Has an enormous head hitbox
+GM.PoisonZombiePointRatio = 65 -- Has an enormous head hitbox
 GM.HeadcrabZombiePointRatio = 30
-GM.NoHeadboxZombiePointRatio = 38
-GM.TorsoZombiePointRatio = 42
+GM.NoHeadboxZombiePointRatio = 37.5
+GM.TorsoZombiePointRatio = 40
 GM.LegsZombiePointRatio = 37.5
 GM.SkeletonPointRatio = GM.HumanoidZombiePointRatio/3
 

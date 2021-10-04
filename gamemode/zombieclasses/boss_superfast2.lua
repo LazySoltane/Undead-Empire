@@ -182,6 +182,8 @@ if SERVER then
 	end
 end
 
+if not CLIENT then return end
+
 CLASS.Icon = "zombiesurvival/killicons/lacerator"
 CLASS.IconColor = Color(255, 255, 0)
 
@@ -201,8 +203,6 @@ local MuscularBones = {
 	["ValveBiped.Bip01_R_Foot"] = Vector(1, 2, 3),
 }
 
-local render_SetMaterial = render.SetMaterial
-local render_DrawSprite = render.DrawSprite
 local angle_zero = angle_zero
 local LocalToWorld = LocalToWorld
 

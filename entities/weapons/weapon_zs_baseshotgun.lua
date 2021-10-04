@@ -29,6 +29,7 @@ GAMEMODE:SetupDefaultClip(SWEP.Primary)
 
 SWEP.ConeMax = 7
 SWEP.ConeMin = 5.25
+SWEP.Recoil = 0
 
 SWEP.WalkSpeed = SPEED_SLOW
 

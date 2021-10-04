@@ -1,0 +1,144 @@
+AddCSLuaFile()
+DEFINE_BASECLASS("weapon_zs_base")
+
+SWEP.PrintName = "Big Iron"
+SWEP.Description = "This revolver was modified by the great Martini for amazing firepower at the expense of recoil"
+SWEP.Slot = 1
+SWEP.SlotPos = 0
+
+if CLIENT then
+
+SWEP.ViewModelBoneMods = {}
+
+SWEP.VElements = {
+	["aim"] = { type = "Model", model = "models/hunter/misc/roundthing2.mdl", bone = "ValveBiped.Bip01_Spine4", rel = "base", pos = Vector(0, -0.849, 9.092), angle = Angle(0, 90, 0), size = Vector(0.005, 0.005, 0.016), color = Color(109, 109, 109, 255), surpresslightning = false, material = "metal2", skin = 0, bodygroup = {} },
+	["aim+"] = { type = "Model", model = "models/hunter/misc/roundthing2.mdl", bone = "ValveBiped.Bip01_Spine4", rel = "aim", pos = Vector(0, 0, -8.807), angle = Angle(0, 0, 0), size = Vector(0.005, 0.005, 0.016), color = Color(109, 109, 109, 255), surpresslightning = false, material = "metal2", skin = 0, bodygroup = {} },
+	["aim++"] = { type = "Model", model = "models/hunter/triangles/trapezium3x3x1c.mdl", bone = "ValveBiped.Bip01_Spine4", rel = "aim", pos = Vector(0.171, 0, -8.4), angle = Angle(-90, 0, 0), size = Vector(0.007, 0.004, 0.007), color = Color(109, 109, 109, 255), surpresslightning = false, material = "metal2", skin = 0, bodygroup = {} },
+	["aim+++"] = { type = "Model", model = "models/hunter/triangles/trapezium3x3x1c.mdl", bone = "ValveBiped.Bip01_Spine4", rel = "aim", pos = Vector(0.171, -0.213, 0.385), angle = Angle(90, 0, 180), size = Vector(0.007, 0.004, 0.007), color = Color(109, 109, 109, 255), surpresslightning = false, material = "metal2", skin = 0, bodygroup = {} },
+	["aim++++"] = { type = "Model", model = "models/hunter/triangles/trapezium3x3x1c.mdl", bone = "ValveBiped.Bip01_Spine4", rel = "aim", pos = Vector(0.17, 0.213, 0.385), angle = Angle(90, 0, 180), size = Vector(0.007, 0.004, 0.007), color = Color(109, 109, 109, 255), surpresslightning = false, material = "metal2", skin = 0, bodygroup = {} },
+	["base"] = { type = "Model", model = "models/hunter/tubes/tube1x1x1.mdl", bone = "Python", rel = "", pos = Vector(0, -0.741, 7.933), angle = Angle(0, 180, 180), size = Vector(0.022, 0.022, 0.144), color = Color(109, 109, 109, 255), surpresslightning = false, material = "metal2", skin = 0, bodygroup = {} },
+	["base+"] = { type = "Model", model = "models/hunter/tubes/tube1x1x1.mdl", bone = "Python", rel = "base", pos = Vector(0, 0, 5.977), angle = Angle(0, 0, 0), size = Vector(0.024, 0.024, 0.017), color = Color(109, 109, 109, 255), surpresslightning = false, material = "metal2", skin = 0, bodygroup = {} },
+	["base++"] = { type = "Model", model = "models/hunter/blocks/cube025x025x025.mdl", bone = "Python", rel = "base", pos = Vector(0, -0.634, 8.071), angle = Angle(0, 0, 0), size = Vector(0.073, 0.035, 0.352), color = Color(109, 109, 109, 255), surpresslightning = false, material = "metal2", skin = 0, bodygroup = {} },
+	["base+++"] = { type = "Model", model = "models/hunter/blocks/cube025x025x025.mdl", bone = "Python", rel = "base", pos = Vector(0, -0.513, 3.04), angle = Angle(0, 0, 0), size = Vector(0.053, 0.032, 0.511), color = Color(109, 109, 109, 255), surpresslightning = false, material = "metal2", skin = 0, bodygroup = {} },
+	["base++++"] = { type = "Model", model = "models/hunter/blocks/cube025x025x025.mdl", bone = "Python", rel = "base", pos = Vector(0, 1.193, 9.898), angle = Angle(0, 0, 0), size = Vector(0.071, 0.275, 0.043), color = Color(109, 109, 109, 255), surpresslightning = false, material = "metal2", skin = 0, bodygroup = {} },
+	["base+++++"] = { type = "Model", model = "models/hunter/blocks/cube025x025x025.mdl", bone = "Python", rel = "base", pos = Vector(0, 2.484, 9.898), angle = Angle(0, 0, 0), size = Vector(0.082, 0.041, 0.055), color = Color(109, 109, 109, 255), surpresslightning = false, material = "metal2", skin = 0, bodygroup = {} },
+	["base++++++"] = { type = "Model", model = "models/hunter/tubes/circle2x2d.mdl", bone = "Python", rel = "base", pos = Vector(0, 5.124, 11.152), angle = Angle(0, -90, -90), size = Vector(0.089, 0.045, 0.221), color = Color(109, 109, 109, 255), surpresslightning = false, material = "metal2", skin = 0, bodygroup = {} },
+	["base+++++++"] = { type = "Model", model = "models/hunter/tubes/circle2x2d.mdl", bone = "Python", rel = "base", pos = Vector(0, 5.124, 11.152), angle = Angle(0, -90, -90), size = Vector(0.07, 0.044, 0.383), color = Color(136, 54, 54, 255), surpresslightning = false, material = "metal2", skin = 0, bodygroup = {} },
+	["base++++++++"] = { type = "Model", model = "models/hunter/blocks/cube025x025x025.mdl", bone = "Python", rel = "base", pos = Vector(0, 1.918, 10.661), angle = Angle(0, 0, 0), size = Vector(0.074, 0.171, 0.082), color = Color(109, 109, 109, 255), surpresslightning = false, material = "metal2", skin = 0, bodygroup = {} },
+	["base+++++++++"] = { type = "Model", model = "models/hunter/plates/platehole1x1.mdl", bone = "Python", rel = "base", pos = Vector(0, -0.838, 11.714), angle = Angle(90, 0, 0), size = Vector(0.033, 0.04, 0.21), color = Color(109, 109, 109, 255), surpresslightning = false, material = "metal2", skin = 0, bodygroup = {} },
+	["base++++++++++"] = { type = "Model", model = "models/hunter/tubes/circle2x2c.mdl", bone = "Python", rel = "base", pos = Vector(0, 0.415, 10.209), angle = Angle(-65.991, -90, -90), size = Vector(0.021, 0.021, 0.122), color = Color(255, 255, 255, 255), surpresslightning = false, material = "phoenix_storms/dome", skin = 0, bodygroup = {} },
+	["base+++++++++++"] = { type = "Model", model = "models/hunter/tubes/circle2x2c.mdl", bone = "Python", rel = "base", pos = Vector(0, -0.344, 10.76), angle = Angle(-26.497, 90, 90), size = Vector(0.014, 0.014, 0.098), color = Color(255, 255, 255, 255), surpresslightning = false, material = "phoenix_storms/dome", skin = 0, bodygroup = {} },
+	["base++++++++++++"] = { type = "Model", model = "models/hunter/blocks/cube025x025x025.mdl", bone = "Python", rel = "base", pos = Vector(0, 1.39, 6.395), angle = Angle(0, 0, 0), size = Vector(0.074, 0.156, 0.06), color = Color(109, 109, 109, 255), surpresslightning = false, material = "metal2", skin = 0, bodygroup = {} },
+	["base+++++++++++++"] = { type = "Model", model = "models/hunter/misc/roundthing2.mdl", bone = "Python", rel = "base", pos = Vector(0, 0.735, 1.66), angle = Angle(0, 0, 0), size = Vector(0.017, 0.004, 0.098), color = Color(109, 109, 109, 255), surpresslightning = false, material = "metal2", skin = 0, bodygroup = {} },
+	["base++++++++++++++"] = { type = "Model", model = "models/hunter/misc/platehole4x4c.mdl", bone = "Python", rel = "base", pos = Vector(0, 0.296, 6.395), angle = Angle(0, 90, 0), size = Vector(0.004, 0.005, 0.242), color = Color(109, 109, 109, 255), surpresslightning = false, material = "metal2", skin = 0, bodygroup = {} },
+	["base+++++++++++++++"] = { type = "Model", model = "models/hunter/misc/roundthing2.mdl", bone = "Python", rel = "base", pos = Vector(0, 0.296, 1.66), angle = Angle(0, 0, 0), size = Vector(0.017, 0.005, 0.045), color = Color(109, 109, 109, 255), surpresslightning = false, material = "metal2", skin = 0, bodygroup = {} },
+	["base++++++++++++++++"] = { type = "Model", model = "models/hunter/misc/shell2x2a.mdl", bone = "Python", rel = "base", pos = Vector(0, 0.592, 9.263), angle = Angle(0, 0, 0), size = Vector(0.019, 0.019, 0.019), color = Color(109, 109, 109, 255), surpresslightning = false, material = "metal2", skin = 0, bodygroup = {} },
+	["base+++++++++++++++++"] = { type = "Model", model = "models/hunter/blocks/cube025x025x025.mdl", bone = "Python", rel = "base", pos = Vector(0, 1.869, 8.118), angle = Angle(0, 0, 0), size = Vector(0.07, 0.033, 0.269), color = Color(109, 109, 109, 255), surpresslightning = false, material = "metal2", skin = 0, bodygroup = {} },
+	["base++++++++++++++++++"] = { type = "Model", model = "models/hunter/plates/platehole1x1.mdl", bone = "Python", rel = "base", pos = Vector(0, 2.324, 11.716), angle = Angle(90, 180, 0), size = Vector(0.105, 0.007, 0.269), color = Color(109, 109, 109, 255), surpresslightning = false, material = "metal2", skin = 0, bodygroup = {} },
+	["base+++++++++++++++++++"] = { type = "Model", model = "models/hunter/tubes/tube2x2x025.mdl", bone = "Python", rel = "base", pos = Vector(0, 2.89, 8.353), angle = Angle(90, 180, 0), size = Vector(0.018, 0.018, 0.037), color = Color(109, 109, 109, 255), surpresslightning = false, material = "metal2", skin = 0, bodygroup = {} },
+	["base++++++++++++++++++++"] = { type = "Model", model = "models/hunter/plates/platehole1x2.mdl", bone = "Python", rel = "base", pos = Vector(0, 2.731, 8.353), angle = Angle(0, -90, -90), size = Vector(0.014, 0.017, 0.088), color = Color(109, 109, 109, 255), surpresslightning = false, material = "metal2", skin = 0, bodygroup = {} },
+	["base+++++++++++++++++++++"] = { type = "Model", model = "models/hunter/blocks/cube025x025x025.mdl", bone = "Python", rel = "base", pos = Vector(0, 2.269, 9.431), angle = Angle(0, 0, 0), size = Vector(0.021, 0.062, 0.053), color = Color(109, 109, 109, 255), surpresslightning = false, material = "metal2", skin = 0, bodygroup = {} },
+	["base++++++++++++++++++++++"] = { type = "Model", model = "models/hunter/blocks/cube025x025x025.mdl", bone = "Python", rel = "base", pos = Vector(0, 2.269, 7.235), angle = Angle(0, 0, 0), size = Vector(0.021, 0.062, 0.053), color = Color(109, 109, 109, 255), surpresslightning = false, material = "metal2", skin = 0, bodygroup = {} },
+	["base+++++++++++++++++++++++"] = { type = "Model", model = "models/hunter/blocks/cube025x025x025.mdl", bone = "Python", rel = "base", pos = Vector(0, -0.634, 0.714), angle = Angle(0, 0, 0), size = Vector(0.062, 0.035, 0.116), color = Color(109, 109, 109, 255), surpresslightning = false, material = "metal2", skin = 0, bodygroup = {} },
+	["base++++++++++++++++++++++++"] = { type = "Model", model = "models/hunter/tubes/circle2x2d.mdl", bone = "Python", rel = "base", pos = Vector(0, 5.124, 11.152), angle = Angle(0, -90, -90), size = Vector(0.081, 0.045, 0.296), color = Color(109, 109, 109, 255), surpresslightning = false, material = "metal2", skin = 0, bodygroup = {} },
+	["base+++++++++++++++++++++++++"] = { type = "Model", model = "models/hunter/blocks/cube025x025x025.mdl", bone = "Python", rel = "base", pos = Vector(0, 4.01, 10.864), angle = Angle(0, 0, 0), size = Vector(0.074, 0.193, 0.059), color = Color(109, 109, 109, 255), surpresslightning = false, material = "metal2", skin = 0, bodygroup = {} },
+	["base++++++++++++++++++++++++++"] = { type = "Model", model = "models/hunter/tubes/circle2x2c.mdl", bone = "Python", rel = "base", pos = Vector(0, 5.139, 11.893), angle = Angle(0, 90, 90), size = Vector(0.007, 0.029, 0.287), color = Color(109, 109, 109, 255), surpresslightning = false, material = "metal2", skin = 0, bodygroup = {} },
+	["bullet"] = { type = "Model", model = "models/weapons/shell.mdl", bone = "Bullet1", rel = "", pos = Vector(0.295, -0.002, 0.516), angle = Angle(90, 0, 0), size = Vector(0.546, 0.546, 0.546), color = Color(255, 255, 255, 255), surpresslightning = false, material = "", skin = 0, bodygroup = {} },
+	["bullet+"] = { type = "Model", model = "models/weapons/shell.mdl", bone = "Bullet2", rel = "", pos = Vector(0.306, -0.021, 0.516), angle = Angle(90, 0, 0), size = Vector(0.546, 0.546, 0.546), color = Color(255, 255, 255, 255), surpresslightning = false, material = "", skin = 0, bodygroup = {} },
+	["bullet++"] = { type = "Model", model = "models/weapons/shell.mdl", bone = "Bullet3", rel = "", pos = Vector(0.303, 0.007, 0.516), angle = Angle(90, 0, 0), size = Vector(0.546, 0.546, 0.546), color = Color(255, 255, 255, 255), surpresslightning = false, material = "", skin = 0, bodygroup = {} },
+	["bullet+++"] = { type = "Model", model = "models/weapons/shell.mdl", bone = "Bullet4", rel = "", pos = Vector(0.294, 0.037, 0.516), angle = Angle(90, 0, 0), size = Vector(0.546, 0.546, 0.546), color = Color(255, 255, 255, 255), surpresslightning = false, material = "", skin = 0, bodygroup = {} },
+	["bullet++++"] = { type = "Model", model = "models/weapons/shell.mdl", bone = "Bullet5", rel = "", pos = Vector(0.286, 0.016, 0.516), angle = Angle(90, 0, 0), size = Vector(0.546, 0.546, 0.546), color = Color(255, 255, 255, 255), surpresslightning = false, material = "", skin = 0, bodygroup = {} },
+	["bullet+++++"] = { type = "Model", model = "models/weapons/shell.mdl", bone = "Bullet6", rel = "", pos = Vector(0.285, -0.016, 0.516), angle = Angle(90, 0, 0), size = Vector(0.546, 0.546, 0.546), color = Color(255, 255, 255, 255), surpresslightning = false, material = "", skin = 0, bodygroup = {} },
+	["drum"] = { type = "Model", model = "models/hunter/tubes/circle4x4.mdl", bone = "Cylinder", rel = "", pos = Vector(0, 0, -0.281), angle = Angle(0, 0, 0), size = Vector(0.011, 0.011, 0.723), color = Color(255, 255, 255, 255), surpresslightning = false, material = "phoenix_storms/dome", skin = 0, bodygroup = {} },
+	["drum+"] = { type = "Model", model = "models/hunter/tubes/circle2x2.mdl", bone = "Cylinder", rel = "drum", pos = Vector(0, -0.689, -1.049), angle = Angle(0, 0, 0), size = Vector(0.007, 0.007, 0.051), color = Color(109, 109, 109, 255), surpresslightning = false, material = "metal2", skin = 0, bodygroup = {} },
+	["drum++"] = { type = "Model", model = "models/hunter/tubes/circle2x2.mdl", bone = "Cylinder", rel = "drum", pos = Vector(0, 0.689, -1.049), angle = Angle(0, 0, 0), size = Vector(0.007, 0.007, 0.051), color = Color(109, 109, 109, 255), surpresslightning = false, material = "metal2", skin = 0, bodygroup = {} },
+	["drum+++"] = { type = "Model", model = "models/hunter/tubes/circle2x2.mdl", bone = "Cylinder", rel = "drum", pos = Vector(0.586, -0.356, -1.049), angle = Angle(0, 0, 0), size = Vector(0.007, 0.007, 0.051), color = Color(109, 109, 109, 255), surpresslightning = false, material = "metal2", skin = 0, bodygroup = {} },
+	["drum++++"] = { type = "Model", model = "models/hunter/tubes/circle2x2.mdl", bone = "Cylinder", rel = "drum", pos = Vector(-0.586, -0.356, -1.049), angle = Angle(0, 0, 0), size = Vector(0.007, 0.007, 0.051), color = Color(109, 109, 109, 255), surpresslightning = false, material = "metal2", skin = 0, bodygroup = {} },
+	["drum+++++"] = { type = "Model", model = "models/hunter/tubes/circle2x2.mdl", bone = "Cylinder", rel = "drum", pos = Vector(-0.586, 0.323, -1.049), angle = Angle(0, 0, 0), size = Vector(0.007, 0.007, 0.051), color = Color(109, 109, 109, 255), surpresslightning = false, material = "metal2", skin = 0, bodygroup = {} },
+	["drum++++++"] = { type = "Model", model = "models/hunter/tubes/circle2x2.mdl", bone = "Cylinder", rel = "drum", pos = Vector(0.586, 0.323, -1.049), angle = Angle(0, 0, 0), size = Vector(0.007, 0.007, 0.051), color = Color(109, 109, 109, 255), surpresslightning = false, material = "metal2", skin = 0, bodygroup = {} }
+}
+
+SWEP.WElements = {
+	["aim"] = { type = "Model", model = "models/hunter/misc/roundthing2.mdl", bone = "ValveBiped.Bip01_R_Hand", rel = "base", pos = Vector(0, -0.849, 9.092), angle = Angle(0, 90, 0), size = Vector(0.005, 0.005, 0.016), color = Color(109, 109, 109, 255), surpresslightning = false, material = "metal2", skin = 0, bodygroup = {} },
+	["aim+"] = { type = "Model", model = "models/hunter/misc/roundthing2.mdl", bone = "ValveBiped.Bip01_R_Hand", rel = "aim", pos = Vector(0, 0, -8.807), angle = Angle(0, 0, 0), size = Vector(0.005, 0.005, 0.016), color = Color(109, 109, 109, 255), surpresslightning = false, material = "metal2", skin = 0, bodygroup = {} },
+	["aim++"] = { type = "Model", model = "models/hunter/triangles/trapezium3x3x1c.mdl", bone = "ValveBiped.Bip01_R_Hand", rel = "aim", pos = Vector(0.171, 0, -8.4), angle = Angle(-90, 0, 0), size = Vector(0.007, 0.004, 0.007), color = Color(109, 109, 109, 255), surpresslightning = false, material = "metal2", skin = 0, bodygroup = {} },
+	["aim+++"] = { type = "Model", model = "models/hunter/triangles/trapezium3x3x1c.mdl", bone = "ValveBiped.Bip01_R_Hand", rel = "aim", pos = Vector(0.171, -0.213, 0.385), angle = Angle(90, 0, 180), size = Vector(0.007, 0.004, 0.007), color = Color(109, 109, 109, 255), surpresslightning = false, material = "metal2", skin = 0, bodygroup = {} },
+	["aim++++"] = { type = "Model", model = "models/hunter/triangles/trapezium3x3x1c.mdl", bone = "ValveBiped.Bip01_R_Hand", rel = "aim", pos = Vector(0.17, 0.213, 0.385), angle = Angle(90, 0, 180), size = Vector(0.007, 0.004, 0.007), color = Color(109, 109, 109, 255), surpresslightning = false, material = "metal2", skin = 0, bodygroup = {} },
+	["base"] = { type = "Model", model = "models/hunter/tubes/tube1x1x1.mdl", bone = "ValveBiped.Bip01_R_Hand", rel = "", pos = Vector(14.625, 1.234, -4.279), angle = Angle(0, 90, -90), size = Vector(0.022, 0.022, 0.144), color = Color(109, 109, 109, 255), surpresslightning = false, material = "metal2", skin = 0, bodygroup = {} },
+	["base+"] = { type = "Model", model = "models/hunter/tubes/tube1x1x1.mdl", bone = "ValveBiped.Bip01_R_Hand", rel = "base", pos = Vector(0, 0, 5.977), angle = Angle(0, 0, 0), size = Vector(0.024, 0.024, 0.017), color = Color(109, 109, 109, 255), surpresslightning = false, material = "metal2", skin = 0, bodygroup = {} },
+	["base++"] = { type = "Model", model = "models/hunter/blocks/cube025x025x025.mdl", bone = "ValveBiped.Bip01_R_Hand", rel = "base", pos = Vector(0, -0.634, 8.071), angle = Angle(0, 0, 0), size = Vector(0.073, 0.035, 0.352), color = Color(109, 109, 109, 255), surpresslightning = false, material = "metal2", skin = 0, bodygroup = {} },
+	["base+++"] = { type = "Model", model = "models/hunter/blocks/cube025x025x025.mdl", bone = "ValveBiped.Bip01_R_Hand", rel = "base", pos = Vector(0, -0.513, 3.04), angle = Angle(0, 0, 0), size = Vector(0.053, 0.032, 0.511), color = Color(109, 109, 109, 255), surpresslightning = false, material = "metal2", skin = 0, bodygroup = {} },
+	["base++++"] = { type = "Model", model = "models/hunter/blocks/cube025x025x025.mdl", bone = "ValveBiped.Bip01_R_Hand", rel = "base", pos = Vector(0, 1.193, 9.898), angle = Angle(0, 0, 0), size = Vector(0.071, 0.275, 0.043), color = Color(109, 109, 109, 255), surpresslightning = false, material = "metal2", skin = 0, bodygroup = {} },
+	["base+++++"] = { type = "Model", model = "models/hunter/blocks/cube025x025x025.mdl", bone = "ValveBiped.Bip01_R_Hand", rel = "base", pos = Vector(0, 2.484, 9.898), angle = Angle(0, 0, 0), size = Vector(0.082, 0.041, 0.055), color = Color(109, 109, 109, 255), surpresslightning = false, material = "metal2", skin = 0, bodygroup = {} },
+	["base++++++"] = { type = "Model", model = "models/hunter/tubes/circle2x2d.mdl", bone = "ValveBiped.Bip01_R_Hand", rel = "base", pos = Vector(0, 5.124, 11.152), angle = Angle(0, -90, -90), size = Vector(0.089, 0.057, 0.221), color = Color(109, 109, 109, 255), surpresslightning = false, material = "metal2", skin = 0, bodygroup = {} },
+	["base+++++++"] = { type = "Model", model = "models/hunter/tubes/circle2x2d.mdl", bone = "ValveBiped.Bip01_R_Hand", rel = "base", pos = Vector(0, 5.124, 11.152), angle = Angle(0, -90, -90), size = Vector(0.07, 0.044, 0.383), color = Color(136, 51, 54, 255), surpresslightning = false, material = "metal2", skin = 0, bodygroup = {} },
+	["base++++++++"] = { type = "Model", model = "models/hunter/blocks/cube025x025x025.mdl", bone = "ValveBiped.Bip01_R_Hand", rel = "base", pos = Vector(0, 1.918, 10.661), angle = Angle(0, 0, 0), size = Vector(0.074, 0.171, 0.082), color = Color(109, 109, 109, 255), surpresslightning = false, material = "metal2", skin = 0, bodygroup = {} },
+	["base+++++++++"] = { type = "Model", model = "models/hunter/plates/platehole1x1.mdl", bone = "ValveBiped.Bip01_R_Hand", rel = "base", pos = Vector(0, -0.838, 11.714), angle = Angle(90, 0, 0), size = Vector(0.033, 0.04, 0.21), color = Color(109, 109, 109, 255), surpresslightning = false, material = "metal2", skin = 0, bodygroup = {} },
+	["base++++++++++"] = { type = "Model", model = "models/hunter/tubes/circle2x2c.mdl", bone = "ValveBiped.Bip01_R_Hand", rel = "base", pos = Vector(0, 0.415, 10.209), angle = Angle(-65.991, -90, -90), size = Vector(0.021, 0.021, 0.122), color = Color(255, 255, 255, 255), surpresslightning = false, material = "phoenix_storms/dome", skin = 0, bodygroup = {} },
+	["base+++++++++++"] = { type = "Model", model = "models/hunter/tubes/circle2x2c.mdl", bone = "ValveBiped.Bip01_R_Hand", rel = "base", pos = Vector(0, -0.344, 10.76), angle = Angle(-26.497, 90, 90), size = Vector(0.014, 0.014, 0.098), color = Color(255, 255, 255, 255), surpresslightning = false, material = "phoenix_storms/dome", skin = 0, bodygroup = {} },
+	["base++++++++++++"] = { type = "Model", model = "models/hunter/blocks/cube025x025x025.mdl", bone = "ValveBiped.Bip01_R_Hand", rel = "base", pos = Vector(0, 1.39, 6.395), angle = Angle(0, 0, 0), size = Vector(0.074, 0.156, 0.06), color = Color(109, 109, 109, 255), surpresslightning = false, material = "metal2", skin = 0, bodygroup = {} },
+	["base+++++++++++++"] = { type = "Model", model = "models/hunter/misc/roundthing2.mdl", bone = "ValveBiped.Bip01_R_Hand", rel = "base", pos = Vector(0, 0.735, 1.66), angle = Angle(0, 0, 0), size = Vector(0.017, 0.004, 0.098), color = Color(109, 109, 109, 255), surpresslightning = false, material = "metal2", skin = 0, bodygroup = {} },
+	["base++++++++++++++"] = { type = "Model", model = "models/hunter/misc/platehole4x4c.mdl", bone = "ValveBiped.Bip01_R_Hand", rel = "base", pos = Vector(0, 0.296, 6.395), angle = Angle(0, 90, 0), size = Vector(0.004, 0.005, 0.242), color = Color(109, 109, 109, 255), surpresslightning = false, material = "metal2", skin = 0, bodygroup = {} },
+	["base+++++++++++++++"] = { type = "Model", model = "models/hunter/misc/roundthing2.mdl", bone = "ValveBiped.Bip01_R_Hand", rel = "base", pos = Vector(0, 0.296, 1.66), angle = Angle(0, 0, 0), size = Vector(0.017, 0.005, 0.045), color = Color(109, 109, 109, 255), surpresslightning = false, material = "metal2", skin = 0, bodygroup = {} },
+	["base++++++++++++++++"] = { type = "Model", model = "models/hunter/misc/shell2x2a.mdl", bone = "ValveBiped.Bip01_R_Hand", rel = "base", pos = Vector(0, 0.592, 9.263), angle = Angle(0, 0, 0), size = Vector(0.019, 0.019, 0.019), color = Color(109, 109, 109, 255), surpresslightning = false, material = "metal2", skin = 0, bodygroup = {} },
+	["base+++++++++++++++++"] = { type = "Model", model = "models/hunter/blocks/cube025x025x025.mdl", bone = "ValveBiped.Bip01_R_Hand", rel = "base", pos = Vector(0, 1.869, 8.118), angle = Angle(0, 0, 0), size = Vector(0.07, 0.033, 0.269), color = Color(109, 109, 109, 255), surpresslightning = false, material = "metal2", skin = 0, bodygroup = {} },
+	["base++++++++++++++++++"] = { type = "Model", model = "models/hunter/plates/platehole1x1.mdl", bone = "ValveBiped.Bip01_R_Hand", rel = "base", pos = Vector(0, 2.324, 11.716), angle = Angle(90, 180, 0), size = Vector(0.105, 0.007, 0.269), color = Color(109, 109, 109, 255), surpresslightning = false, material = "metal2", skin = 0, bodygroup = {} },
+	["base+++++++++++++++++++"] = { type = "Model", model = "models/hunter/tubes/tube2x2x025.mdl", bone = "ValveBiped.Bip01_R_Hand", rel = "base", pos = Vector(0, 2.89, 8.353), angle = Angle(90, 180, 0), size = Vector(0.018, 0.018, 0.037), color = Color(109, 109, 109, 255), surpresslightning = false, material = "metal2", skin = 0, bodygroup = {} },
+	["base++++++++++++++++++++"] = { type = "Model", model = "models/hunter/plates/platehole1x2.mdl", bone = "ValveBiped.Bip01_R_Hand", rel = "base", pos = Vector(0, 2.731, 8.353), angle = Angle(0, -90, -90), size = Vector(0.014, 0.017, 0.088), color = Color(109, 109, 109, 255), surpresslightning = false, material = "metal2", skin = 0, bodygroup = {} },
+	["base+++++++++++++++++++++"] = { type = "Model", model = "models/hunter/blocks/cube025x025x025.mdl", bone = "ValveBiped.Bip01_R_Hand", rel = "base", pos = Vector(0, 2.269, 9.431), angle = Angle(0, 0, 0), size = Vector(0.021, 0.062, 0.053), color = Color(109, 109, 109, 255), surpresslightning = false, material = "metal2", skin = 0, bodygroup = {} },
+	["base++++++++++++++++++++++"] = { type = "Model", model = "models/hunter/blocks/cube025x025x025.mdl", bone = "ValveBiped.Bip01_R_Hand", rel = "base", pos = Vector(0, 2.269, 7.235), angle = Angle(0, 0, 0), size = Vector(0.021, 0.062, 0.053), color = Color(109, 109, 109, 255), surpresslightning = false, material = "metal2", skin = 0, bodygroup = {} },
+	["base+++++++++++++++++++++++"] = { type = "Model", model = "models/hunter/blocks/cube025x025x025.mdl", bone = "ValveBiped.Bip01_R_Hand", rel = "base", pos = Vector(0, -0.634, 0.714), angle = Angle(0, 0, 0), size = Vector(0.062, 0.035, 0.116), color = Color(109, 109, 109, 255), surpresslightning = false, material = "metal2", skin = 0, bodygroup = {} },
+	["base++++++++++++++++++++++++"] = { type = "Model", model = "models/hunter/tubes/circle2x2d.mdl", bone = "ValveBiped.Bip01_R_Hand", rel = "base", pos = Vector(0, 5.124, 11.152), angle = Angle(0, -90, -90), size = Vector(0.081, 0.045, 0.296), color = Color(136, 54, 54, 255), surpresslightning = false, material = "metal2", skin = 0, bodygroup = {} },
+	["base+++++++++++++++++++++++++"] = { type = "Model", model = "models/hunter/blocks/cube025x025x025.mdl", bone = "ValveBiped.Bip01_R_Hand", rel = "base", pos = Vector(0, 3.843, 10.864), angle = Angle(0, 0, 0), size = Vector(0.074, 0.171, 0.059), color = Color(109, 109, 109, 255), surpresslightning = false, material = "metal2", skin = 0, bodygroup = {} },
+	["drum"] = { type = "Model", model = "models/hunter/tubes/circle4x4.mdl", bone = "ValveBiped.Bip01_R_Hand", rel = "base", pos = Vector(-0.027, 0.574, 7.987), angle = Angle(0, 180, -180), size = Vector(0.011, 0.011, 0.723), color = Color(255, 255, 255, 255), surpresslightning = false, material = "phoenix_storms/dome", skin = 0, bodygroup = {} },
+	["drum+"] = { type = "Model", model = "models/hunter/tubes/circle2x2.mdl", bone = "ValveBiped.Bip01_R_Hand", rel = "drum", pos = Vector(0, -0.689, -1.049), angle = Angle(0, 0, 0), size = Vector(0.007, 0.007, 0.051), color = Color(109, 109, 109, 255), surpresslightning = false, material = "metal2", skin = 0, bodygroup = {} },
+	["drum++"] = { type = "Model", model = "models/hunter/tubes/circle2x2.mdl", bone = "ValveBiped.Bip01_R_Hand", rel = "drum", pos = Vector(0, 0.689, -1.049), angle = Angle(0, 0, 0), size = Vector(0.007, 0.007, 0.051), color = Color(109, 109, 109, 255), surpresslightning = false, material = "metal2", skin = 0, bodygroup = {} },
+	["drum+++"] = { type = "Model", model = "models/hunter/tubes/circle2x2.mdl", bone = "ValveBiped.Bip01_R_Hand", rel = "drum", pos = Vector(0.586, -0.356, -1.049), angle = Angle(0, 0, 0), size = Vector(0.007, 0.007, 0.051), color = Color(109, 109, 109, 255), surpresslightning = false, material = "metal2", skin = 0, bodygroup = {} },
+	["drum++++"] = { type = "Model", model = "models/hunter/tubes/circle2x2.mdl", bone = "ValveBiped.Bip01_R_Hand", rel = "drum", pos = Vector(-0.586, -0.356, -1.049), angle = Angle(0, 0, 0), size = Vector(0.007, 0.007, 0.051), color = Color(109, 109, 109, 255), surpresslightning = false, material = "metal2", skin = 0, bodygroup = {} },
+	["drum+++++"] = { type = "Model", model = "models/hunter/tubes/circle2x2.mdl", bone = "ValveBiped.Bip01_R_Hand", rel = "drum", pos = Vector(-0.586, 0.323, -1.049), angle = Angle(0, 0, 0), size = Vector(0.007, 0.007, 0.051), color = Color(109, 109, 109, 255), surpresslightning = false, material = "metal2", skin = 0, bodygroup = {} },
+	["drum++++++"] = { type = "Model", model = "models/hunter/tubes/circle2x2.mdl", bone = "ValveBiped.Bip01_R_Hand", rel = "drum", pos = Vector(0.586, 0.323, -1.049), angle = Angle(0, 0, 0), size = Vector(0.007, 0.007, 0.051), color = Color(109, 109, 109, 255), surpresslightning = false, material = "metal2", skin = 0, bodygroup = {} }
+}
+
+
+end
+
+SWEP.HoldType = "revolver"
+SWEP.ViewModelFOV = 55
+SWEP.ViewModelFlip = false
+SWEP.ViewModel = "models/weapons/c_357.mdl"
+SWEP.WorldModel = "models/weapons/w_357.mdl"
+SWEP.ShowViewModel = false
+SWEP.ShowWorldModel = false
+
+SWEP.Base = "weapon_zs_base"
+
+SWEP.HUD3DBone = "Python"
+SWEP.HUD3DPos = Vector(0.85, 0, -2.5)
+SWEP.HUD3DScale = 0.015
+
+--use weapon_base ironsight instead, since this one is kinda fucky--
+
+SWEP.IronSightsPos = Vector(-4.626, 9.629, 0.109) 
+SWEP.IronSightsAng = Vector(0, 0, 0)
+
+SWEP.UseHands = true
+
+SWEP.CSMuzzleFlashes = false
+
+SWEP.Primary.Sound = Sound("Weapon_357.Single"), Sound("weapons/zs_longarm/longarm_fire.ogg")
+SWEP.Primary.Delay = 1.2
+SWEP.Primary.Damage = 88
+SWEP.FireAnimSpeed = 1.2
+SWEP.Primary.NumShots = 1
+SWEP.Recoil = 5
+
+SWEP.Primary.ClipSize = 6
+SWEP.Primary.Automatic = false
+SWEP.Primary.Ammo = "pistol"
+SWEP.Primary.Gesture = ACT_HL2MP_GESTURE_RANGE_ATTACK_PISTOL
+GAMEMODE:SetupDefaultClip(SWEP.Primary)
+
+SWEP.Tier = 2
+
+SWEP.ConeMax = 3
+SWEP.ConeMin = 2.5
