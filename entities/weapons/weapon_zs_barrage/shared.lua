@@ -16,11 +16,11 @@ SWEP.Primary.Automatic = true
 SWEP.Primary.Ammo = "impactmine"
 SWEP.Primary.Delay = 0.8
 SWEP.Primary.DefaultClip = 3
-SWEP.Primary.Damage = 25
+SWEP.Primary.Damage = 35
 SWEP.Primary.NumShots = 3
 
-SWEP.ConeMax = 8
-SWEP.ConeMin = 7.5
+SWEP.ConeMax = 7
+SWEP.ConeMin = 6.5
 
 SWEP.WalkSpeed = SPEED_SLOW
 
