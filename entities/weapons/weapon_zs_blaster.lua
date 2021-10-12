@@ -23,7 +23,7 @@ SWEP.UseHands = false
 SWEP.ReloadDelay = 0.4
 
 SWEP.Primary.Sound = Sound("Weapon_Shotgun.NPC_Single")
-SWEP.Primary.Damage = 8.325
+SWEP.Primary.Damage = 8.5
 SWEP.Primary.NumShots = 8
 SWEP.Primary.Delay = 0.8
 
@@ -31,7 +31,7 @@ SWEP.Primary.ClipSize = 6
 SWEP.Primary.Automatic = false
 SWEP.Primary.Ammo = "buckshot"
 GAMEMODE:SetupDefaultClip(SWEP.Primary)
-SWEP.ConeMax = 8.75
+SWEP.ConeMax = 7.5
 SWEP.ConeMin = 5
 SWEP.Recoil = 1
 
