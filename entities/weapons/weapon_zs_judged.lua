@@ -126,7 +126,7 @@ SWEP.UseHands = true
 SWEP.CSMuzzleFlashes = false
 
 SWEP.Primary.Sound = Sound("Weapon_357.Single"), Sound("weapons/zs_longarm/longarm_fire.ogg")
-SWEP.Primary.Delay = 1.2
+SWEP.Primary.Delay = 0.9
 SWEP.Primary.Damage = 88
 SWEP.FireAnimSpeed = 1.2
 SWEP.Primary.NumShots = 1
