@@ -9,7 +9,7 @@ CLASS.Model = Model("models/player/zombie_fast.mdl")
 
 CLASS.Wave = 3 / 6
 
-CLASS.Infliction = 0.01 -- 99% of players dead
+-- CLASS.Infliction = 0.01 -- 99% of players dead
 
 
 CLASS.Revives = true
